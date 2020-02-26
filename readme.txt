@@ -11,7 +11,7 @@ a_red (for histogram stretching on red channel), b_red (for histogram stretching
 a_green (for histogram stretching on green channel), b_green (for histogram stretching on green channel),
 a_blue (for histogram stretching on blue channel), b_blue (for histogram stretching on blue channel), 
 a_rgb (for histogram stretching on all 3 rgb channel together), and b_rgb (for histogram stretching on all 3 rgb channel together). 
-They will not contain commans. After those n lines, the rest of the 
+They will not contain commas. After those n lines, the rest of the 
 lines in the file should be images to run the specified functions on and how to name the output image. 
 These lines will be in this form: input_image output_image function. Where the function can be 
 hist_stretch (for Histogram Stretching), opt_thresh (for Optimal Thresholding), 
