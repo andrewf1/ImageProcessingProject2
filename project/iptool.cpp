@@ -73,6 +73,7 @@ int main (int argc, char** argv)
     while (fgets(str, MAXLEN, fp) != NULL) {
         pch = strtok(str, " ");
         src.read(pch); // creating the source image
+        string src_name = pch;
 
         pch = strtok(NULL, " ");
         strcpy(outfile, pch);
@@ -84,48 +85,48 @@ int main (int argc, char** argv)
             auto start = chrono::high_resolution_clock::now();
             utility::histStretch(src, tgt, regions, file_name);
             auto end = chrono::high_resolution_clock::now();
-            cout << "histStretch time = " << chrono::duration_cast<chrono::milliseconds>(end - start).count() << "ms" << endl;
+            cout << "histStretch time for " << src_name << " = " << chrono::duration_cast<chrono::milliseconds>(end - start).count() << "ms" << endl;
         }   
         else if (strncasecmp(pch, "opt_thresh", MAXLEN) == 0) {
             auto start = chrono::high_resolution_clock::now();
             utility::optimalThresholding(src, tgt, regions);
             auto end = chrono::high_resolution_clock::now();
-            cout << "optimalThresholding time = " << chrono::duration_cast<chrono::milliseconds>(end - start).count() << "ms" << endl;
+            cout << "optimalThresholding for " << src_name << " = " << chrono::duration_cast<chrono::milliseconds>(end - start).count() << "ms" << endl;
         }
         else if (strncasecmp(pch, "comb_hist_thresh", MAXLEN) == 0) {
             string file_name = outfile;
             auto start = chrono::high_resolution_clock::now();
             utility::combHistOptThresh(src, tgt, regions, file_name);
             auto end = chrono::high_resolution_clock::now();
-            cout << "combHistOptThresh time = " << chrono::duration_cast<chrono::milliseconds>(end - start).count() << "ms" << endl;
+            cout << "combHistOptThresh for " << src_name << " = " << chrono::duration_cast<chrono::milliseconds>(end - start).count() << "ms" << endl;
         }
         else if (strncasecmp(pch, "hist_red", MAXLEN) == 0) {
             string file_name = outfile;
             auto start = chrono::high_resolution_clock::now();
             utility::histRed(src, tgt, regions, file_name);
             auto end = chrono::high_resolution_clock::now();
-            cout << "histRed time = " << chrono::duration_cast<chrono::milliseconds>(end - start).count() << "ms" << endl;
+            cout << "histRed for " << src_name << " = " << chrono::duration_cast<chrono::milliseconds>(end - start).count() << "ms" << endl;
         }
         else if (strncasecmp(pch, "hist_green", MAXLEN) == 0) {
             string file_name = outfile;
             auto start = chrono::high_resolution_clock::now();
             utility::histGreen(src, tgt, regions, file_name);
             auto end = chrono::high_resolution_clock::now();
-            cout << "histGreen time = " << chrono::duration_cast<chrono::milliseconds>(end - start).count() << "ms" << endl;
+            cout << "histGreen for " << src_name << " = " << chrono::duration_cast<chrono::milliseconds>(end - start).count() << "ms" << endl;
         }
         else if (strncasecmp(pch, "hist_blue", MAXLEN) == 0) {
             string file_name = outfile;
             auto start = chrono::high_resolution_clock::now();
             utility::histBlue(src, tgt, regions, file_name);
             auto end = chrono::high_resolution_clock::now();
-            cout << "histBlue time = " << chrono::duration_cast<chrono::milliseconds>(end - start).count() << "ms" << endl;
+            cout << "histBlue for " << src_name << " = " << chrono::duration_cast<chrono::milliseconds>(end - start).count() << "ms" << endl;
         }
         else if (strncasecmp(pch, "hist_rgb", MAXLEN) == 0) {
             string file_name = outfile;
             auto start = chrono::high_resolution_clock::now();
             utility::histRGB(src, tgt, regions, file_name);
             auto end = chrono::high_resolution_clock::now();
-            cout << "histRGB time = " << chrono::duration_cast<chrono::milliseconds>(end - start).count() << "ms" << endl;
+            cout << "histRGB for " << src_name << " = " << chrono::duration_cast<chrono::milliseconds>(end - start).count() << "ms" << endl;
         }
         else {
             cout << "No function: " << pch << endl;
