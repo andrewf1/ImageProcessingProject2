@@ -1,3 +1,5 @@
+U09026779, Andrew Fernandez
+
 Parameters
 --------------------------
 There is one file that is read by the program. It has very strict options for each 
